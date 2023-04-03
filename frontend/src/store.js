@@ -15,7 +15,8 @@ import { legacy_createStore as createStore} from 'redux'
     }
  }
 const middleWare=[thunk]
- const store=createStore(rootReducer,initialState,composeWithDevTools(applyMiddleware(...middleWare)))
+ const store=createStore(rootReducer,initialState,
+   composeWithDevTools(applyMiddleware(...middleWare)),{devtools:false})
 
 
 

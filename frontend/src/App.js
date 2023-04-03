@@ -63,9 +63,9 @@ const { user, isAuthenticated, loading } = useSelector(state => state.auth)
 
  return (
    
-    <div className="App">
+   
   <Router>
-  
+  <div className="App">
     <Header />
     <div className='container container-fluid'>
     
@@ -108,8 +108,10 @@ const { user, isAuthenticated, loading } = useSelector(state => state.auth)
     {!loading && (!isAuthenticated || user.role !== 'admin') && (
           <Footer/> 
         )}
+
+</div>
   </Router>
-  </div>
+  
 
   );
 }
