@@ -6,6 +6,9 @@ import App from './App';
  import store from './store'
 import {positions,transitions,Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic';
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
+
+if (process.env.NODE_ENV === 'PRODUCTION') disableReactDevTools()
 
 const options={
   timeout:5000,
