@@ -38,6 +38,7 @@ const [category,setCategory]=useState('')
    const alert =useAlert();
 const dispatch=useDispatch();
 
+const { user } = useSelector(state => state.auth)
 const {loading,error,products,productsCount,resPerPage, filteredProductsCount}=useSelector(state=>state.products)
 
 const keyword = match.params.keyword
@@ -66,6 +67,7 @@ function setCurrentPageNo(pageNumber){
     <MetaData title={'Buy Best Products Online'} />
 
     <h1 id="products_heading">Latest Products</h1>
+    <span>ውድ ደንበኛችን <b>{user && user.name}</b>እንኳን ወደ ድህረ ገፃች በሰላም መጡ።</span>
 
     <section id="products" className="container mt-5">
         <div className="row">
