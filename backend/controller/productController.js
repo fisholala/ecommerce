@@ -81,20 +81,23 @@ exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
 })
 
 exports.getSingleProducts=catchAsyncErrors(async(req,res,next)=>{
-    const {id}=req.params
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        // return res.status(404).json({error:'no such workout'})
-        return next(new ErrorHandler('product not found',404))
-      }
-    const product=await Product.findById(id)
+    // const {id}=req.params
+    // if(!mongoose.Types.ObjectId.isValid(id)){
+    //     // return res.status(404).json({error:'no such workout'})
+    //     return next(new ErrorHandler('product not found',404))
+    //   }
+      const product = await Product.findById(req.params.id)
 
     if(!product){
-          res.status(404).json({
-            success:false,
-            message:'product not found'
-        })
+        //   res.status(404).json({
+        //     success:false,
+        //     message:'product not found'
+        // })
+
+        return next(new ErrorHandler('Product not found', 404));
     }{
-    res.status(200).json({
+
+       res.status(200).json({
         success:true,
         product
     })
